@@ -1,0 +1,944 @@
+ 
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+     ///////////////////////////////////////////////////////////////////////////////////////// #BEGIN DOCUMENT // 
+	 //////////////////////////////////////////////////////////////////////////////////////////////////////////// --> 
+ 
+    <!DOCTYPE HTML> 
+    <html> 
+     
+    <head> 
+    <meta charset="UTF-8"> 
+    <meta name="description" content=""> 
+    <meta name="author" content=""> 
+     
+    <title>Cricket</title> 
+     
+<!-- MOBILE-SPECIFIC METAS ============================ 
+	 ================================================== -->  
+      
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"> 
+     <meta name="apple-mobile-web-app-capable" content="yes"> 
+     <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+      
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+     ///////////////////////////////////////////////////////////////////////////////////////// #BEGIN INCLUDES // 
+	 //////////////////////////////////////////////////////////////////////////////////////////////////////////// --> 
+  
+<!-- CSS INCLUDES ===================================== 
+	 ================================================== --> 
+	 
+	<link type="text/css" rel="stylesheet" href="css/customer.css" > 
+	<link type="text/css" rel="stylesheet" href="css/general.css" > 
+	<link type="text/css" rel="stylesheet" href="css/scrollbar.css"> 
+	<link type="text/css" rel="stylesheet" href="css/buttons.css"> 
+	<link type="text/css" rel="stylesheet" href="css/elements.css"/> 
+ 
+<!-- JS INCLUDES ====================================== 
+	 ================================================== --> 
+  
+	<script src="js/jquery-1.7.1.min.js"></script> 
+	<script src="js/smart.js"></script>
+	<script src="js/jquery.listItems.js"></script>
+	<script src="js/jquery.pageSetup.js"></script> 
+	<script src="js/overthrow.js"></script> 
+	<script src="js/menu.js"></script>
+	<script src="js/pageSwitch.js"></script> 
+      
+<!-- SCRIPT INCLUDES ================================== 
+	 ================================================== --> 
+	 
+	<script type="text/javascript">
+
+/*   PAGE INITIALIZATION SECTION======================= 
+	 Any action or UI change that requires smart data 
+	 but needs to happen "on load" should be part of
+	 this function
+	 ================================================== */
+	 function pageInit(){
+	 	//UPDATE COUNTS
+	 	$('.required_count').html(assignments.newItems);
+	 	$('.message_count').html(messages.newItems);
+	 	$('.optional_count').html(optionalItems(assignments.assignments).length);
+	 	$('.skillprofile_count').html(skillprofiles.model.length);
+	 	$('.announcements_count').html(announcements.model.new_items);
+	 	$('.notifications_count').html(notifications.model.new_items);
+
+	 	//Set up List Items Plugin
+	 	$('#required_list').html('').listItems({
+	 		collection: 'assignments',
+	 		template: '#required_tmpl',
+	 	})
+
+	 	$('#optional_list').html('').listItems({
+	 		optional: true,
+	 		template: '#optional_tmpl'
+	 	})
+
+	 	$('#lp_list').html('').listItems({
+	 		collection: 'assignments',
+	 		subset: 'skillprofiles',
+	 		template: '#skillprofile_tmpl'
+	 	})
+
+	 	$('#announcement_list').html('').listItems({
+	 		collection: 'announcements',
+	 		template: '#announcement_tmpl'
+	 	})
+
+	 	$('#notification_list').html('').listItems({
+	 		collection: 'notifications',
+	 		template: '#notification_tmpl'
+	 	})
+
+
+	 	
+	 }
+
+/*   BEGIN DOC.READY ================================== 
+	 ================================================== */ 
+	 
+	$(document).ready(function(){ 
+ 
+/*   PAGE SETUP ======================================= 
+	 ================================================== */ 
+		 
+	$('body').pageSetup({ 
+		header			: 'true',		// options: true, false 
+		headerHeight	: 50,			// enter a whole number 
+		
+		footer			: 'false',		// options: true, false 
+		footerHeight	: 0,			// enter a whole number 
+		
+		menu			: 'true',		// options: true, false 
+		menuPosition	: 'left',		// options: top, right, bottom, left 
+		menuStyle		: 'overlay',	// options: push, overlay 
+		menuOnLoad		: 'hide',		// options: show, hide 
+		menuHeight		: 100,			// will only be applied to a menu positioned to the top or bottom 
+		menuWidth		: 315,			// will only be applied to a menu positioned to the left or right 
+		 
+		retractSpeed	: 150,			// millisecond value for hiding menu 
+		expandSpeed		: 200,			// millisecond value for showing menu 
+	}); 
+	 
+/*   SMART SETUP ====================================== 
+	 ================================================== */  
+ 
+/*   DEMO FEATURE ALERT =============================== 
+	 ================================================== */	 
+	 
+	/*$('.demo').on('click', function(e){ 
+	 
+		e.preventDefault(); 
+		var title = $(this).attr('title'); 
+		 
+		alert(title + '\n\nThis feature is not available in the preview.'); 
+		 
+	}); */
+	 
+/*   WEINRE DEBUG CONNECTION ========================== 
+	 ================================================== */  
+	 
+	// To use, add ' data-role="debug" ' to your link  
+	$('body').on('click', '[data-role="debug"]', function(){  
+	  
+		var ip = prompt('Enter your IP Address here');  
+		  
+		$('<script/>').attr({  
+			src:'http://'+ip+':8080/target/target-script-min.js',  
+			type: 'text/javascript'  
+		}).appendTo('body');  
+		  
+	});  
+ 
+/*   END DOC.READY ==================================== 
+	 ================================================== */ 
+	 	    
+	}); 
+	 
+	</script> 
+	 
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+     /////////////////////////////////////////////////////////////////////////////////////////// #END INCLUDES // 
+	 //////////////////////////////////////////////////////////////////////////////////////////////////////////// -->   
+   
+    </head> 
+     
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+     //////////////////////////////////////////////////////////////////////////////////// #BEGIN DOCUMENT BODY // 
+	 //////////////////////////////////////////////////////////////////////////////////////////////////////////// --> 
+	  
+    <body class="white_noise"> 
+     
+<!-- SECTION: HEADER ================================== 
+	 ================================================== --> 
+	 
+	<!-- Outer Wrapper : Full Width --> 
+	<div id="section-header" class="ciq_grad_repeat">
+	
+		<img src="customer_img/branding/cricket_u.png" width="164" class="primary_branding" data-role="nav" data-pane="1" data-page="1">
+		
+		<div class="header_inner_shadow" style="position: relative; top: 31px; height:21px; width:100%;"></div>
+		
+		<div style="position: relative; float:right; right: 25px; top: -10px;">
+		<center>
+		<a href="#" title="Sync" class="demo button menu_button" style="margin-right: 15px;"><i class="icon-black icon-refresh icon-position"></i></a>
+		<a href="#" class="button menu_button toggle"><i class="icon-black icon-list icon-position"></i></a>
+		</center>
+		</div>
+		
+	</div>
+	 
+<!-- SECTION: DISPLAY AREA ============================ 
+	 ================================================== -->  
+     
+    <div id="section-display-area" class="overthrow">  
+	<div id="section-display-area-scroller">  
+     
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+     /////////////////////////////////////////////////////////////////////////////////////////// #BEGIN PANE 1 // 
+	 //////////////////////////////////////////////////////////////////////////////////////////////////////////// --> 
+	  
+	<div data-role="pane" data-pane="1" style="display:block;" data-title="HOME"> 
+	<div data-role="pages"> 
+	 
+<!-- P1: P1 =========================================== 
+	 ================================================== --> 
+	  
+	<div data-role="page" data-page="1" style="display:block;"> 
+	  
+		<div class="super-container full-width"> 
+		<div class="container"> 
+		 
+		<!-- Content List --> 
+		<div class="sixteen columns content" style="position: relative; top:10px;"> 
+			<div class="homerow"> 
+			 
+				<div class="h_onecol col_container"></div> 
+				
+				<a href="#" data-role="nav" data-pane="2" data-page="1">
+				<div class="h_fivecol col_container"> 
+					<div class="btn_container assignments_btn cp_green">
+						<div class="btn_number required_count">&nbsp;0</div>
+						<div class="btn_title"><div class="btn_title_text">assignments</div></div> 
+					</div> 
+				</div>
+				</a>
+				 
+				<a href="#" data-role="nav" data-pane="3" data-page="1"> 
+				<div class="h_fivecol col_container"> 
+					<div class="btn_container messages_btn cp_green">
+						<div class="btn_number message_count">&nbsp;0</div>
+						<div class="btn_title"><div class="btn_title_text">messages</div></div>  
+					</div> 
+				</div> 
+				</a> 
+ 
+				<div class="h_onecol col_container last"></div> 
+				 
+			</div> 
+			 
+			<div class="homerow"> 
+						 
+				<div class="h_onecol col_container"></div> 
+				 
+				<a href="#" data-role="nav" data-pane="5" data-page="1"> 
+				<div class="h_fivecol col_container"> 
+					<div class="btn_container search_btn cp_green"> 
+						<div class="btn_title"><div class="btn_title_text">search<br>catalog</div></div>  
+					</div> 
+				</div> 
+				</a>
+
+				<a href="cellcast://menu/forums" title="Discussions"> 
+				<div class="h_fivecol col_container"> 
+					<div class="btn_container discussions_btn cp_green"> 
+						<div class="btn_title"><div class="btn_title_text">discussions</div></div>  
+					</div> 
+				</div> 
+				</a>
+	 
+				<div class="h_onecol col_container last"></div> 
+				 
+			</div>
+			
+			<div class="homerow"> 
+								 
+				<div class="h_onecol col_container"></div> 
+
+				<a href="#" title="My Resources"> 
+				<div class="h_fivecol col_container"> 
+					<div class="btn_container resources_btn cp_green"> 
+						<div class="btn_title"><div class="btn_title_text">my<br>resources</div></div> 
+					</div> 
+				</div> 
+				</a>
+
+				<!--
+				<a href="#" data-role="nav" data-pane="4" data-page="1"> 
+				<div class="h_fivecol col_container"> 
+					<div class="btn_container games_btn cp_green"> 
+						<div class="btn_title"><div class="btn_title_text">my games</div></div>  
+					</div> 
+				</div> 
+				</a>
+
+				<div class="h_onecol col_container last"></div> 
+				-->
+				 
+			</div>
+			 
+		</div> <!-- /columns --> 
+		 
+		</div> <!-- /super-container --> 
+		</div> <!-- /container --> 
+	 
+	</div> <!-- /page1 --> 
+	 
+	</div> <!-- /pages --> 
+	</div> <!-- /pane1 -->  
+	 
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+     /////////////////////////////////////////////////////////////////////////////////////////// #BEGIN PANE 2 // 
+	 //////////////////////////////////////////////////////////////////////////////////////////////////////////// --> 
+	  
+	<div data-role="pane" data-pane="2" data-title="Assignments"> 
+	<div data-role="pages"> 
+	 
+<!-- P2: P1 =========================================== 
+	 ================================================== --> 
+	  
+	<div data-role="page" data-page="1" style="display:block;"> 
+	  
+		<div class="super-container full-width"> 
+		<div class="container"> 
+				 
+		<!-- Content List --> 
+		<br> 
+		<div class="row"> 
+			 
+			<div class="onecol"></div> 
+		 
+			<div class="tencol"> 
+				<h5 class="list-title"><span>ASSIGNMENTS</span></h5> 
+			</div> 
+			 
+			<div class="onecol last"></div> 
+			 
+		</div> <!-- /row --> 
+		 
+		<div class="row"> 
+		 
+			<div class="onecol"></div> 
+			 
+			<div class="tencol"> 
+				 
+				<div class="list_container"> 
+				<ul id="required_list" class="list">
+					 
+				</ul> 
+				</div> 
+				 
+			</div> 
+			 
+			<div class="onecol last"></div> 
+		 
+		</div> <!-- /row --> 
+						 
+		</div> <!-- /super-container --> 
+		</div> <!-- /container --> 
+	 
+	</div> <!-- /page1 --> 
+   
+  	<div data-role="page" data-page="2" style=""> 
+	  
+		<div class="super-container full-width"> 
+		<div class="container"> 
+				 
+		<!-- Content List --> 
+		<br> 
+		<div class="row"> 
+			 
+			<div class="onecol"></div> 
+		 
+			<div class="tencol"> 
+				<h5 class="list-title"><span>LEARNING PATHS</span></h5> 
+			</div> 
+			 
+			<div class="onecol last"></div> 
+			 
+		</div> <!-- /row --> 
+		 
+		<div class="row"> 
+		 
+			<div class="onecol"></div> 
+			 
+			<div class="tencol"> 
+				 
+				<div class="list_container"> 
+				<ul id="lp_list" class="list">
+					 
+				</ul> 
+				</div> 
+				 
+			</div> 
+			 
+			<div class="onecol last"></div> 
+		 
+		</div> <!-- /row --> 
+						 
+		</div> <!-- /super-container --> 
+		</div> <!-- /container --> 
+	 
+	</div>
+
+	<div data-role="page" data-page="3">
+		<div class="super-container full-width"> 
+			<div class="container"> 
+						 
+				<!-- Content List --> 
+				<br>
+						<div class="row"> 
+			 
+			<div class="onecol"></div> 
+		 
+			<div class="tencol"> 
+				<h5 class="list-title"><span>OPTIONAL ASSIGNMENTS</span></h5> 
+			</div> 
+			 
+			<div class="onecol last"></div> 
+			 
+		</div> <!-- /row --> 
+				<div class="row">
+					<div class="onecol"></div> 
+			 
+			<div class="tencol"> 
+				 
+				<div class="list_container"> 
+				<ul id="optional_list" class="list"> 
+					 
+				</ul> 
+				</div> 
+				 
+			</div> 
+			 
+			<div class="onecol last"></div>
+				</div>
+			</div>
+		</div>
+	</div> 
+   
+   
+	 
+	</div> <!-- /pages --> 
+	</div> <!-- /pane2 --> 
+	 
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+     /////////////////////////////////////////////////////////////////////////////////////////// #BEGIN PANE 3 // 
+	 //////////////////////////////////////////////////////////////////////////////////////////////////////////// --> 
+	  
+	<div data-role="pane" data-pane="3" data-title="Messages"> 
+	<div data-role="pages"> 
+	 
+<!-- P3: P1 =========================================== 
+	 ================================================== --> 
+	  
+	<div data-role="page" data-page="1" style="display:block;"> 
+	  
+		<div class="super-container full-width"> 
+		<div class="container"> 
+				 
+		<!-- Content List --> 
+		<br> 
+		<div class="row"> 
+			 
+			<div class="onecol"></div> 
+		 
+			<div class="tencol"> 
+				<h5 class="list-title"><span>ANNOUNCEMENTS</span></h5> 
+			</div> 
+			 
+			<div class="onecol last"></div> 
+			 
+		</div> <!-- /row --> 
+		 
+		<div class="row"> 
+		 
+			<div class="onecol"></div> 
+			 
+			<div class="tencol"> 
+				 
+				<div class="list_container"> 
+				<ul id="announcement_list" class="list">
+
+				</ul> 
+				</div> 
+				 
+			</div> 
+			 
+			<div class="onecol last"></div> 
+		 
+		</div> <!-- /row --> 
+						 
+		</div> <!-- /super-container --> 
+		</div> <!-- /container --> 
+	 
+	</div> <!-- /page1 -->
+
+	<div data-role="page" data-page="2" style="display:block;"> 
+	  
+		<div class="super-container full-width"> 
+		<div class="container"> 
+				 
+		<!-- Content List --> 
+		<br> 
+		<div class="row"> 
+			 
+			<div class="onecol"></div> 
+		 
+			<div class="tencol"> 
+				<h5 class="list-title"><span>NOTIFICATIONS</span></h5> 
+			</div> 
+			 
+			<div class="onecol last"></div> 
+			 
+		</div> <!-- /row --> 
+		 
+		<div class="row"> 
+		 
+			<div class="onecol"></div> 
+			 
+			<div class="tencol"> 
+				 
+				<div class="list_container"> 
+				<ul id="notification_list" class="list"> 
+				 
+			
+					 
+				</ul> 
+				</div> 
+				 
+			</div> 
+			 
+			<div class="onecol last"></div> 
+		 
+		</div> <!-- /row --> 
+						 
+		</div> <!-- /super-container --> 
+		</div> <!-- /container --> 
+	 
+	</div> <!-- /page1 --> 
+	 
+	</div> <!-- /pages --> 
+	</div> <!-- /pane3 --> 
+	 
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+     /////////////////////////////////////////////////////////////////////////////////////////// #BEGIN PANE 4 // 
+	 //////////////////////////////////////////////////////////////////////////////////////////////////////////// --> 
+	  
+	<div data-role="pane" data-pane="4" data-title="Games"> 
+	<div data-role="pages"> 
+	 
+<!-- P4: P1 =========================================== 
+	 ================================================== --> 
+	  
+	<div data-role="page" data-page="1" style="display:block;"> 
+	  
+		<div class="super-container full-width"> 
+		<div class="container"> 
+				 
+		<!-- Content List --> 
+		<br> 
+		<div class="row"> 
+			 
+			<div class="onecol"></div> 
+		 
+			<div class="tencol"> 
+				<h5 class="list-title"><span>PERSONAL INFO</span></h5> 
+			</div> 
+			 
+			<div class="onecol last"></div> 
+			 
+		</div> <!-- /row --> 
+		 
+		<div class="row"> 
+		 
+			<div class="onecol"></div> 
+			 
+			<div class="tencol" style="margin-bottom: 15px;"> 
+				 
+				<div class="user_profile_container cp_green"> 
+					<div class="profile_image"><img src="customer_img/misc/rob_avatar.png"></div> 
+					<div class="user_info"> 
+						<div class="user_name">John Smith</div> 
+						
+						<div class="user_total_points">Total Points Earned: <span>100</span></div> 
+					</div> 
+					<!-- 
+					<div class="user_level">Level 4</div> 
+					<div class="lifetime_points">Lifetime Points Earned: 920pts</div> 
+					--> 
+				</div> 
+				 
+			</div> 
+			 
+			<div class="onecol last"></div> 
+		 
+		</div> <!-- /row --> 
+         
+        <div class="row"> 
+			 
+			<div class="onecol"></div> 
+		 
+			<div class="tencol"> 
+				<h5 class="list-title"><span>GAME PROFILES</span></h5> 
+			</div> 
+			 
+			<div class="onecol last"></div> 
+			 
+		</div> <!-- /row --> 
+		 
+		</div> <!-- /row --> 
+		 
+		<div class="row"> 
+		 
+			<div class="onecol"></div> 
+			 
+			<div class="tencol" style="margin-bottom:20px;"> 
+                 
+                <ul class="game_menu cp_green"> 
+                     
+                    <li style="border-bottom:1px solid white;">  
+                        <a href="#"><em><i class="icon-white icon-bookmark icon-position"></i></em>THE HUMAN GENOME</a>  
+                        <ul class="game_sub_menu">				   
+                            <li class="sub-item" style="border-top: 1px solid #FFF;"> 
+                            	 
+                                <div class="game_points_container"> 
+                            		<div class="game_points_bg"> 
+                                	<div class="game_points_earned_bg" style="width:1%"></div></div> 
+                               		<div class="game_points_earned">10 / 10000</div> 
+                                </div> 
+                                 
+                             	<div class="game_description">In this game, you will be tasked to discover dormant DNA patterns to prove the existence  
+                                of aliens, or, if the case may be, that we all descended from chickens.</div> 
+                                <br> 
+                                <div class="game_start_button"><a href="#" class="button menu_button" title="Start / Resume Game">Start / Resume Game</a></div> 
+                                <div class="game_start_button"><a href="#" class="button menu_button" title="View Badges">View Badges</a></div> 
+                            </li> 
+                        </ul>  
+                    </li> 
+                     
+                    <li style="border-bottom:1px solid white;">  
+                        <a href="#"><em><i class="icon-white icon-bookmark icon-position"></i></em>PUNCHING SHARKS</a>  
+                        <ul class="game_sub_menu">				   
+                            <li class="sub-item" style="border-top: 1px solid #FFF;"> 
+                            	 
+                                <div class="game_points_container"> 
+                            		<div class="game_points_bg"> 
+                                	<div class="game_points_earned_bg" style="width:0"></div></div> 
+                               		<div class="game_points_earned">0 / 25</div> 
+                                </div> 
+                                 
+                             	<div class="game_description">In this game, you will be tasked to test the theory that punching a shark in the nose 
+                                will persuade it to not eat you.</div> 
+                                <br> 
+                                <div class="game_start_button"><a href="#" class="button menu_button" title="Start / Resume Game">Start / Resume Game</a></div> 
+                                <div class="game_start_button"><a href="#" class="button menu_button" title="View Badges">View Badges</a></div> 
+                            </li> 
+                        </ul>  
+                    </li> 
+                     
+                    <li>  
+                        <a href="#"><em><i class="icon-white icon-bookmark icon-position"></i></em>CIRCUITS OF DOOM</a>  
+                        <ul class="game_sub_menu">				   
+                            <li class="sub-item" style="border-top: 1px solid #FFF;"> 
+                            	 
+                                <div class="game_points_container"> 
+                            		<div class="game_points_bg"> 
+                                	<div class="game_points_earned_bg" style="width:90%"></div></div> 
+                               		<div class="game_points_earned">90 / 100</div> 
+                                </div> 
+                                 
+                             	<div class="game_description">Be prepared for SCIENCE! In this game, you will be tasked to create a motherboard for 
+                                a super computer using nothing but toothpicks.</div> 
+                                <br> 
+                                <div class="game_start_button"><a href="#" class="button menu_button" title="Start / Resume Game">Start / Resume Game</a></div> 
+                                <div class="game_start_button"><a href="#" class="button menu_button" title="View Badges">View Badges</a></div> 
+                            </li> 
+                        </ul>  
+                    </li>  
+                     
+                     
+  				</ul> <!-- /game menu --> 
+				 
+			</div> <!-- /tencol --> 
+			 
+		</div> <!-- /row --> 
+						 
+		</div> <!-- /super-container --> 
+		</div> <!-- /container --> 
+	 
+	</div> <!-- /page1 --> 
+	 
+	</div> <!-- /pages --> 
+	</div> <!-- /pane4 -->
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+     /////////////////////////////////////////////////////////////////////////////////////////// #BEGIN PANE 5 // 
+	 //////////////////////////////////////////////////////////////////////////////////////////////////////////// --> 
+	  
+	<div data-role="pane" data-pane="5" data-title="Search"> 
+	<div data-role="pages"> 
+	 
+<!-- P5: P1 =========================================== 
+	 ================================================== --> 
+	  
+	<div data-role="page" data-page="1" style="display:block;"> 
+	  
+		<div class="super-container full-width"> 
+		<div class="container"> 
+		 
+		<!-- Header --> 
+		 
+		<div class="sixteen columns content" style="margin-bottom: 20px; text-align:left; margin-top:28px;"> 
+ 
+			<div class="row"> 
+			 
+				<div class="onecol"></div> 
+			 
+				<div class="tencol"> 
+					<h5 class="list-title"><span>SEARCH CATALOG</span></h5> 
+				</div> 
+				 
+				<div class="onecol last"></div>
+
+			 
+			</div> <!-- /row --> 
+			 
+		</div> 
+		 
+		<!-- Content List --> 
+		<div class="sixteen columns content" style="margin-top:-15px;"> 
+
+		<div class="row">
+		<div class="onecol"></div>
+
+		<div class="tencol">
+		 
+			<div><input id="searchTerm" class="searchbox">
+
+				<div style="position:relative; top:-49px; float:right; right:5px">
+					<div class="search_button" id="searchBtn">
+					<a href="#" class="go" title="Search" style="margin:0; left:4px;">Go</a></div> 
+		            
+		            <div class="search_button" id="clearBtn">
+					<a href="#" class="go" title="Clear" style="border-left:0;">Clear</a></div>
+	        	</div>
+
+	       	</div>
+
+            <!--
+			<button type="button" id="searchBtn">GO</button>&nbsp;&nbsp;<button type="button" id="searchClear">CLEAR</button></div>
+			-->
+	      	<input id="spoof" type="text" style="display:none"/> 
+				 
+			<hr> 
+				 
+			<div id="resultsbox" style="display:none;"> 
+				<h5 class="list-title">RESULTS for "<i><span id="curTerm"></span></i>"</h5> 
+				 
+		        <div id="searchWrapper"> 
+		        <div id="searchScroller"> 
+					<ul class="list"> 
+						<li>assignment 1</li> 
+						<li>assignment 2</li> 
+						<li>assignment 3</li> 
+					</ul> 
+		        </div> 
+		        </div> 
+		         
+			</div> <!-- /resultsbox -->
+
+		</div> <!-- /tencol -->
+
+		<div class="onecol last"></div>
+
+		</div> <!-- /row -->
+		 
+		</div> <!-- /columns --> 
+		 
+		</div> <!-- /container --> 
+		</div> <!-- /super-container -->  
+	 
+	</div> <!-- /page1 --> 
+	 
+	</div> <!-- /pages --> 
+	</div> <!-- /pane5 -->
+      
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+     /////////////////////////////////////////////////////////////////////////////////////// #END DISPLAY AREA // 
+	 //////////////////////////////////////////////////////////////////////////////////////////////////////////// --> 
+         
+    </div> <!-- END CONTENT -->     
+  	</div> <!-- END CONTAINER -->  
+  	 
+<!-- SECTION: NAVIGATION MENU ========================= 
+	 ================================================== -->  
+	  
+	<div id="section-menu" class="dark_denim overthrow"> 
+	<div id="section-menu-scroller"> 
+	 
+		<div id="wrapper-250">  
+		 
+			<ul class="menu"> 
+			 
+				<li id="zero" style="height:33px;"> 
+				</li> 
+		    	 
+		    	<li id="one" style="border-bottom:1px solid white;">  
+					<a href="#" data-role="nav" data-pane="1" data-page="1"><em><i class="icon-white icon-home icon-position"></i></em>HOME</a>  
+				</li>  
+		         
+				<li id="two" style="border-bottom:1px solid white;">  
+					<a href="#"><em><i class="icon-white icon-star icon-position"></i></em>ASSIGNMENTS</a>  
+					<ul class="sub-menu">				  
+						<ul class="sub-menu">				  
+							<li class="sub-heading">REQUIRED ASSIGNMENTS</li>  
+							<li class="sub-item" style="border-bottom: 1px solid #3d3d3d;"><a href="#" data-role="nav" data-pane="2" data-page="1"><em><i class="icon-white icon-pencil icon-position"></i></em>Assignments<span class="required_count">0/span></a></li>  
+							<li class="sub-item"><a href="#" data-role="nav" data-pane="2" data-page="2"><em><i class="icon-white icon-book icon-position"></i></em>Learning Paths<span class="skillprofile_count">0</span></a></li>  
+							<li class="sub-heading">OPTIONAL ASSIGNMENTS</li>  
+							<li class="sub-item"><a href="#" data-role="nav" data-pane="2" data-page="3"><em><i class="icon-white icon-pencil icon-position"></i></em>Assignments<span class="optional_count">0</span></a></li>  
+						</ul>  
+					</ul>  
+				</li>  
+					  
+				<li id="three" style="border-bottom:1px solid white;">  
+					<a href="#"><em><i class="icon-white icon-inbox icon-position"></i></em>MESSAGES</a>  
+					<ul class="sub-menu">				  
+						<li class="sub-item" style="border-bottom: 1px solid #3d3d3d;"><a href="#" data-role="nav" data-pane="3" data-page="1"><em><i class="icon-white icon-exclamation-sign icon-position"></i></em>Announcements<span class="announcements_count">0</span></a></li>  
+						<li class="sub-item"><a href="#" data-role="nav" data-pane="3" data-page="2"><em><i class="icon-white icon-envelope icon-position"></i></em>Notifications<span class="notifications_count">0</span></a></li>  
+					</ul>  
+				</li>  
+		             
+				<li id="four" style="border-bottom:1px solid white;">  
+					<a href="#"><em><i class="icon-white icon-search icon-position"></i></em>SEARCH</a>  
+					<ul class="sub-menu">				  
+						<li class="sub-item"><a href="#" data-role="nav" data-pane="5" data-page="1"><em><i class="icon-white icon-search icon-position"></i></em>Search Library</a></li>  
+					</ul>  
+				</li>  
+					  
+				<li id="five" style="border-bottom:1px solid white;">  
+				<a href="#"><em><i class="icon-white icon-user icon-position"></i></em>MY NETWORKS</a>  
+					<ul class="sub-menu">				  
+						<li class="sub-item" style="border-bottom: 1px solid #3d3d3d;"><a href="cellcast://menu/blogs"><em><i class="icon-white icon-comment icon-position"></i></em>Blogs</a></li>  
+						<li class="sub-item"><a href="cellcast://menu/forums"><em><i class="icon-white icon-list icon-position"></i></em>Forums</a></li>  
+					</ul>  
+				</li>  
+		             
+				<li id="six" style="border-bottom:1px solid white;">  
+				<a href="#"><em><i class="icon-white icon-picture icon-position"></i></em>MY MEDIA</a>  
+					<ul class="sub-menu">				  
+						<li class="sub-item" style="border-bottom: 1px solid #3d3d3d;"><a href="cellcast://menu/images"><em><i class="icon-white icon-camera icon-position"></i></em>Take a Picture</a></li>  
+						<li class="sub-item" style="border-bottom: 1px solid #3d3d3d;"><a href="cellcast://menu/video"><em><i class="icon-white icon-facetime-video icon-position"></i></em>Record Video</a></li>  
+						<li class="sub-item" style="border-bottom: 1px solid #3d3d3d;"><a href="cellcast://menu/audio"><em><i class="icon-white icon-music icon-position"></i></em>Record Audio</a></li>  
+						<li class="sub-item"><a href="cellcast://menu/uploadhistory"><em><i class="icon-white icon-retweet icon-position"></i></em>Upload History</a></li>  
+					</ul>  
+				</li> 
+				 
+				<li id="nine" style="border-bottom:1px solid white;">  
+				<a href="#"><em><i class="icon-white icon-flag icon-position"></i></em>GAMIFICATION</a>  
+					<ul class="sub-menu">				  
+						<li class="sub-item" style="border-bottom: 1px solid #3d3d3d;"><a href="#" data-role="nav" data-pane="4" data-page="1"><em><i class="icon-white icon-bookmark icon-position"></i></em>Game Profiles</a></li>  
+					</ul>  
+				</li> 
+		             
+				<li id="seven" style="border-bottom:1px solid white;">  
+				<a href="#"><em><i class="icon-white icon-adjust icon-position"></i></em>STATUS</a>  
+					<ul class="sub-menu">				  
+						<li class="sub-item" style="border-bottom: 1px solid #3d3d3d;"><a href="cellcast://menu/mystatus"><em><i class="icon-white icon-list-alt icon-position"></i></em>My Status</a></li>  
+						<li class="sub-item" style="border-bottom: 1px solid #3d3d3d;"><a href="cellcast://menu/devicestatus"><em><i class="icon-white icon-list-alt icon-position"></i></em>Device Status</a></li>  
+						<li class="sub-item" style="border-bottom: 1px solid #3d3d3d;"><a href="cellcast://menu/downloadutility"><em><i class="icon-white icon-download-alt icon-position"></i></em>Download Utility</a></li>  
+						<li class="sub-item"><a href="#" data-role="debug"><em><i class="icon-white icon-info-sign icon-position"></i></em>About</a></li>  
+					</ul>  
+				</li> 
+				 
+				<li id="eight">  
+				<a href="cellcast://menu/settings"><em><i class="icon-white icon-cog icon-position"></i></em>SETTINGS</a>  
+				</li> 
+				  
+			</ul> <!-- /menu list --> 
+				  
+		</div> <!-- /wrapper-250 --> 
+		 
+	</div> <!-- /menu scroller --> 
+	</div> <!-- /menu container --> 
+ 
+<!-- SECTION: FOOTER ================================== 
+	 ================================================== -->  
+       
+	<div id="section-footer" class="classy_fabric">  
+	</div> 
+
+	<div id="templates" style="display:none;">
+
+		<div id="required_tmpl">
+			<li>
+				<a href="#" data-scurl="assignment">
+					<div>
+						<img src="" class="assign_thumb" data-tmpl="thumb">
+						<div class="assign_title" data-tmpl="title"></div>
+					</div>
+				</a>
+			</li> 
+		</div>
+
+		<div id="optional_tmpl">
+			<li>
+				<a href="#" data-scurl="assignment">
+					<div>
+						<img src="" class="assign_thumb" data-tmpl="thumb">
+						<div class="assign_title" data-tmpl="title"></div>
+					</div>
+				</a>
+			</li>  
+		</div>
+
+		<div id="skillprofile_tmpl">
+			<li>
+				<a href="#" data-scurl="assignment">
+					<div>
+						<img src="" class="assign_thumb" data-tmpl="thumb">
+						<div class="assign_title" data-tmpl="title"></div>
+					</div>
+				</a>
+			</li> 
+		</div>
+
+		<div id="announcement_tmpl">
+			<li>
+				<a href="#" data-scurl="announcement">
+					<span data-tmpl="msg_title"></span><br>
+				</a>
+			</li> 
+		</div>
+
+		<div id="notification_tmpl">
+			<li>
+				<a href="#" data-scurl="notification">
+					<span data-tmpl="msg_title"></span><br>
+				</a>
+			</li> 
+		</div>
+
+		<div id="catalog_tmpl">
+			<a href="#" data-scurl="#">
+			</a>
+		</div>
+
+	</div>
+   
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+     ////////////////////////////////////////////////////////////////////////////////////// #END DOCUMENT BODY // 
+	 //////////////////////////////////////////////////////////////////////////////////////////////////////////// -->  
+      
+    </body>  
+    </html>  

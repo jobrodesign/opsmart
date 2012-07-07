@@ -1,0 +1,654 @@
+
+/*  ALL CUSTOMER SPECIFIC STYLES 
+	SHOULD BE INCLUDED IN THIS FILE ONLY
+    ------------------------------------- */
+
+/* =======================================================
+   TABLE OF CONTENTS
+   ======================================================= */
+   
+/* =======================================================
+   #CUSTOMER STYLES : PATTERNS
+   ======================================================= */
+   
+	.ciq_grad_repeat		{ background: url(../customer_img/patterns/ciq_grad_repeat.png) repeat-x; }
+	.header_inner_shadow	{ background: url(../customer_img/patterns/header_inner_shadow.png) repeat-x; }
+	
+	.bg_fmpurple			{ background-color: #24ab4f; }
+	.bg_fmorange			{ background-color: #f0984b; }
+
+	.cp_green				{ background-color: #597d57 !important; }
+	.cs_green				{ background-color: #3a5340; }
+	.ca_green				{ background-color: #c9cf50; }
+	.ca_orange				{ background-color: #dba95e; }
+	
+/* =======================================================
+   #CUSTOMER STYLES : SECTION MENU
+   ======================================================= */
+   
+	.primary_branding {
+		position:absolute; 
+  		display: inline-block;
+  		top: 5px !important; 
+  		left:45px;
+  		}
+	
+  /* Menu Layout  */
+	
+	.menu,
+	.menu ul,
+	.menu li,
+	.menu a,
+	.menu span {
+		margin: 0;
+		padding: 0;
+		border: none;
+		outline: none;
+		list-style: none;
+		}
+	
+	.menu li > a {
+		display: block;
+		position: relative;
+		min-width: 110px;
+		padding: 3px 0 0 40px;
+		height: 39px;
+		color: #fdfdfd;
+		font: bold 12px/34px Arial, sans-serif;
+		text-decoration: none;
+		}
+	
+	.menu > li:hover > a,
+	.menu > li:target > a,
+	.menu > li > a.active {
+		border-right: 9px solid #24ab4f;
+		}
+
+  /* Menu Item Label  */
+
+	.menu li > a span {
+		display: block;
+		position: absolute;
+		top: 7px;
+		right: 0;
+		padding: 0px 10px;
+		margin-right: 10px;
+		font: normal bold 12px/18px Arial, sans-serif;
+		background: #404247;
+		-webkit-border-radius: 15px;
+		-moz-border-radius: 15px;
+		border-radius: 15px;
+		}
+	
+  /* Menu Item Icon  */
+	
+	.menu > li > a:before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: '';
+		width: 24px;
+		height: 24px;
+		margin: 4px 8px;
+		background-repeat: no-repeat;
+		background-position: 0px 0px;
+		}
+	
+	.menu em {
+		position: absolute;
+		float:left;
+		top: 2px;
+		left: 0;
+		margin-left: 14px;
+		color: #a6a6a6;
+		font: normal 10px/32px Arial, sans-serif;
+		}
+	
+  /* Sub-Menu Item  */
+	
+	li.sub-item > a {
+		height:100% !important;
+		background: url(../base_img/patterns/darkerdenim.png) repeat;
+		color: #fdfdfd;
+		font: bold 12px/34px Arial, sans-serif;
+		text-decoration: none;
+		}
+		
+	li.sub-item:first-child > a {
+		border-top: 0px !important;
+		border-bottom: 0px !important;
+		}
+		
+	li.sub-item:last-child > a {
+		border-top: 0px !important;
+		border-bottom: 0px !important;
+		}
+	
+	.two-line { font: normal bold 12px/16px Arial, sans-serif !important;
+				padding:8px 0px 8px 41px !important; }
+					
+	.two-line em { top:20% !important; }
+	
+	.three-line { font: normal bold 12px/16px Arial, sans-serif !important;
+				  padding:8px 0px 8px 41px !important; }
+					
+	.three-line em { top:30% !important; }
+	
+	li.sub-item:last-child > a { border-bottom: 1px solid #c9c9c9; }
+	
+  /* Sub-Menu Item Label  */
+
+	.sub-item > em {
+		position: absolute;
+		top: 1px;
+		left: 0;
+		margin-left: 14px;
+		color: #a6a6a6;
+		font: normal 10px/32px Arial, sans-serif;
+		}
+		
+	.sub-item > span {
+		position: absolute;
+		top: 8px !important;
+		padding-top: 2px !important;
+		}
+	
+  /* Functionality  */
+	
+	.menu li > .sub-menu { display: none; }
+	
+	.menu li:target > .sub-menu { display: block; }
+	
+  /* Sub-Headings  */
+	
+	.sub-heading {
+		height:33px !important;
+		padding:0px !important;
+		}
+
+	li.sub-heading { 
+		position:relative;
+		padding:0 0 0 14px !important;
+		background: url(../base_img/patterns/darkerdenim.png) repeat;
+		color: #fdfdfd;
+		font: bold 12px/34px Arial, sans-serif;
+		text-decoration: none;
+		text-shadow: 0px 1px 0px rgba(0,0,0, .35);
+		border-top: 1px solid #3d3d3d;
+		border-bottom: 1px solid #3d3d3d;
+		}
+		
+/* =======================================================
+   #CUSTOMER STYLES : HOME SCREEN
+   ======================================================= */
+		
+	.assignments_btn	{ background: url(../customer_img/misc/assignments_btn_icon.png) no-repeat; }
+	.games_btn			{ background: url(../customer_img/misc/games_btn_icon.png) no-repeat; }
+	.messages_btn		{ background: url(../customer_img/misc/messages_btn_icon.png) no-repeat; }
+	.search_btn			{ background: url(../customer_img/misc/search_btn_icon.png) no-repeat; }
+	.discussions_btn	{ background: url(../customer_img/misc/discussions_btn_icon.png) no-repeat; }
+	.resources_btn		{ background: url(../customer_img/misc/resources4_btn_icon.png) no-repeat; }
+	/*.search_btn		{ background: url(../base_img/icons/search.png) no-repeat; }
+	.forums_btn			{ background: url(../base_img/icons/forums.png) no-repeat; } */
+						  
+	.menu_close	{
+		position: relative;
+		float: right;
+		display: block;
+		top: 15px;
+		right: 15px;
+		}
+		
+	.col_container {
+		height: 275px;
+		}
+		
+	.btn_container{
+		height: 250px;
+		}	
+		
+	.btn_greet{
+		position: relative;
+		top: 108px;
+		font-family: arial, helvetica, sans-serif;
+		font-weight: bold;
+		font-size: 80px;
+		color: white;
+		}
+		
+	.btn_name{
+		position: relative;
+		top: 155px;
+		font-family: arial, helvetica, sans-serif;
+		font-weight: bold;
+		font-size: 25px;
+		color: white;
+		}
+		
+	.user_profile_container {
+		position: relative;
+		display: block;
+		padding: 15px;
+		-moz-box-shadow: 7px 7px 5px #b6b6b6;
+		-webkit-box-shadow: 7px 7px 5px #b6b6b6;
+		box-shadow: 7px 7px 5px #b6b6b6;
+		}
+		
+	.profile_image {
+		position: relative;
+		display: inline-block;
+		border: 4px solid #FFF;
+		height: 56px;
+		vertical-align: middle;
+		}
+		
+	.user_info {
+		position:relative; 
+		display:inline-block; 
+		height: 100%; 
+		vertical-align: middle;
+		margin-left: 20px;
+		}
+		
+	.user_name {
+		position: relative;
+		display: block;
+		font-family: arial, helvetica, sans-serif;
+		font-weight: bold;
+		font-size: 18px;
+		color: white;
+		margin-bottom: 5px;
+		}
+		
+	.user_title {
+		position: relative;
+		display: block;
+		font-family: arial, helvetica, sans-serif;
+		font-weight: bold;
+		font-size: 14px;
+		color: white;
+		margin-bottom: 5px;
+		}
+		
+	.user_level {
+		position: relative;
+		display: inline-block;
+		background-color: #1b6633;
+		padding: 3px 7px 3px 7px;
+		font-family: arial, helvetica, sans-serif;
+		font-weight: bold;
+		font-size: 14px;
+		color: white;
+		margin-right: 10px;
+		}
+		
+	.user_total_points{
+		position: relative;
+		display: inline-block;
+		background-color: #1b6633;
+		padding: 3px 7px 3px 7px;
+		font-family: arial, helvetica, sans-serif;
+		font-weight: bold;
+		font-size: 14px;
+		color: white;
+		}
+		
+/* =======================================================
+   #CUSTOMER STYLES : GAMES SCREEN
+   ======================================================= */
+	
+	/* Menu Layout  */
+	
+	.game_menu {
+		-moz-box-shadow: 7px 7px 5px #b6b6b6;
+		-webkit-box-shadow: 7px 7px 5px #b6b6b6;
+		box-shadow: 7px 7px 5px #b6b6b6;
+		}
+	
+	.game_menu,
+	.game_menu ul,
+	.game_menu li,
+	.game_menu a,
+	.game_menu span {
+		margin: 0;
+		padding: 0;
+		border: none;
+		outline: none;
+		list-style: none;
+		}
+	
+	.game_menu li > a {
+		display: block;
+		position: relative;
+		min-width: 110px;
+		padding: 3px 0 0 40px;
+		height: 39px;
+		color: #fdfdfd;
+		font: bold 12px/34px Arial, sans-serif;
+		text-decoration: none;
+		border-right: 40px solid #3a5340 !important;
+		}
+	
+	.game_menu > li:hover > a,
+	.game_menu > li:target > a,
+	.game_menu > li > a.active {
+		border-right: 9px solid #f89331;
+		}
+
+  /* Menu Item Label  */
+
+	.game_menu li > a span {
+		display: block;
+		position: absolute;
+		top: 7px;
+		right: 0;
+		padding: 0px 10px;
+		margin-right: 10px;
+		font: normal bold 12px/18px Arial, sans-serif;
+		background: #24ab4f;
+		-webkit-border-radius: 15px;
+		-moz-border-radius: 15px;
+		border-radius: 15px;
+		}
+	
+  /* Menu Item Icon  */
+	
+	.game_menu > li > a:before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: '';
+		width: 24px;
+		height: 24px;
+		margin: 4px 8px;
+		background-repeat: no-repeat;
+		background-position: 0px 0px;
+		}
+	
+	.game_menu em {
+		position: absolute;
+		float:left;
+		top: 2px;
+		left: 0;
+		margin-left: 14px;
+		color: #a6a6a6;
+		font: normal 10px/32px Arial, sans-serif;
+		}
+	
+  /* Sub-Menu Item  */
+  
+  	.game_sub_menu > .sub-item {
+		height:100% !important;
+		background: url(../base_img/patterns/darkerdenim.png) repeat;
+		color: #fdfdfd;
+		font: bold 12px/34px Arial, sans-serif;
+		text-decoration: none;
+		border-right: 0 !important;
+		padding-left: 40px;
+		}
+	
+	.game_sub_menu > .sub-item > a {
+		height:100% !important;
+		background: url(../base_img/patterns/darkerdenim.png) repeat;
+		color: #fdfdfd;
+		font: bold 12px/34px Arial, sans-serif;
+		text-decoration: none;
+		border-right: 0 !important;
+		}
+		
+	.game_sub_menu > .sub-item:first-child > a {
+		border-top: 0px !important;
+		border-bottom: 0px !important;
+		}
+		
+	.game_sub_menu > .sub-item:last-child > a {
+		border-top: 0px !important;
+		border-bottom: 0px !important;
+		}
+	
+	.two-line { font: normal bold 12px/16px Arial, sans-serif !important;
+				padding:8px 0px 8px 41px !important; }
+					
+	.two-line em { top:20% !important; }
+	
+	.three-line { font: normal bold 12px/16px Arial, sans-serif !important;
+				  padding:8px 0px 8px 41px !important; }
+					
+	.three-line em { top:30% !important; }
+	
+	li.sub-item:last-child > a { border-bottom: 1px solid #c9c9c9; }
+	
+  /* Sub-Menu Item Label  */
+
+	.sub-item > em {
+		position: absolute;
+		top: 1px;
+		left: 0;
+		margin-left: 14px;
+		color: #a6a6a6;
+		font: normal 10px/32px Arial, sans-serif;
+		}
+		
+	.sub-item > span {
+		position: absolute;
+		top: 8px !important;
+		padding-top: 2px !important;
+		}
+	
+  /* Functionality  */
+	
+	.game_menu li > .game_sub_menu { display: none; }
+	
+	.game_menu li:target > .game_sub_menu { display: block; }
+	
+	.game_description {
+		position:relative;
+		top:20px;
+		min-width:200px;
+		max-width:500px;
+		font: normal bold 12px/16px Arial, sans-serif !important;
+		padding-right:30px;
+		}
+		
+	.game_points_container {
+		position: relative;
+		display: block;
+		height:30px;
+		width:80%;
+		font-weight:bold;
+		text-align:right;
+		top: 15px;
+		margin-bottom:15px;
+		-moz-box-shadow: 4px 4px 5px #000;
+		-webkit-box-shadow:4px 4px 5px #000;
+		box-shadow: 4px 4px 5px #000;
+		}
+	
+	.game_points_bg {
+		position: relative;
+		display: block;
+		background-color: #597d57;
+		height:100%;
+		width:100%;
+		}
+		
+	.game_points_earned_bg {
+		position:relative;
+		height:100%;
+		float:left;
+		background-color: #dba95e;
+		}
+		
+	.game_points_earned {
+		position:absolute;
+		top:-1px;
+		right:20px;
+		color: #FFF;
+		font-weight:bold;
+		font-size:20px;
+		}
+		
+	.game_start_button {
+		position:relative !important;
+		display:inline-block !important;
+		margin-right: 15px;
+		}
+
+	.search_button {
+		position:relative !important;
+		display:inline-block !important;
+		}
+
+	.search_button > .go {
+		position:relative;
+		display:block;
+		top:-3px;
+		background-color:white;
+		height:37px;
+		padding:10px 20px 0 20px;
+		font: normal bold 12px/16px Arial, sans-serif !important;
+		border-left:1px solid #CCC;
+		border-right:1px solid #CCC;
+		}
+		
+/* =======================================================
+   #CUSTOMER STYLES : HOME SCREEN - RESPONSIVE
+   ======================================================= */
+		
+	@media handheld, only screen and (max-width: 768px){
+	
+		.primary_branding {
+			position:absolute; 
+			display: inline-block;
+			top: 30px; 
+			left:20px;
+			}
+		
+		.col_container{ height: 150px; }
+	
+		.btn_container{ height: 125px; }
+		
+		.btn_number{
+			position: absolute;
+			float: right;
+			-moz-border-radius: 35px;
+			-webkit-border-radius: 35px;
+			border-radius: 35px;
+			padding-top: 10px;
+			border: 2px solid white;
+			width: 40px;
+			height: 40px;
+			color: #fff;
+			font-family: helvetica;
+			font-weight: bold;
+			background-color: red;
+			background-repeat: repeat-x;
+			font-size: 25px !important;
+			margin-top:-10px;
+			margin-left:-10px;
+			}
+			
+		.btn_title{
+			position:relative;
+			display: block;
+			height:80px;
+			width:100%;
+			top:45px;
+			float:right;
+			font-size: 18px !important;
+			font-weight:bold;
+			color: #FFF;
+			text-align: right !important;
+			padding-right:20px;
+			}
+
+		.btn_title > .btn_title_text {
+			position: absolute;
+			display: block;
+			right: 15px;
+			bottom: 15px;
+			}
+			
+		.btn_greet{
+			top: 25px;
+			right: 20px;
+			font-size: 60px;
+			color: white;
+			float: right;
+			}
+			
+		.btn_name{
+			top: 50px;
+			right: 22px;
+			font-size: 25px;
+			color: white;
+			float: right;
+			}
+			
+		.profile_image {
+			position: relative;
+			display: inline-block;
+			border: 4px solid #FFF;
+			height: 56px;
+			vertical-align: top;
+			}
+			
+		.user_info {
+			position:relative; 
+			display:inline-block; 
+			width: 65%;
+			min-width: 130px;
+			max-width: 600px;
+			}
+			
+		.user_name {
+			position: relative;
+			display: block;
+			font-family: arial, helvetica, sans-serif;
+			font-weight: bold;
+			font-size: 18px;
+			color: white;
+			margin-bottom: 5px;
+			}
+			
+		.user_title {
+			position: relative;
+			display: block;
+			font-family: arial, helvetica, sans-serif;
+			font-weight: bold;
+			font-size: 14px;
+			color: white;
+			margin-bottom: 10px;
+			}
+			
+		.user_level {
+			position: relative;
+			display: inline-block;
+			background-color: #1b6633;
+			padding: 3px 7px 3px 7px;
+			font-family: arial, helvetica, sans-serif;
+			font-weight: bold;
+			font-size: 14px;
+			color: white;
+			margin-right: 10px;
+			margin-bottom: 10px;
+			}
+			
+		.user_total_points{
+			position: relative;
+			display: inline-block;
+			background-color: #3a5340;
+			padding: 3px 7px 3px 7px;
+			font-family: arial, helvetica, sans-serif;
+			font-weight: bold;
+			font-size: 14px;
+			color: white;
+			}
+			
+		.game_start_button {
+			display:block !important;
+			margin-right: 15px;
+			margin-bottom: 0px !important;
+			}
+	}
+

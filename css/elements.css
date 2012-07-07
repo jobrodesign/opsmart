@@ -1,0 +1,245 @@
+
+/* =======================================================
+   TABLE OF CONTENTS
+   ======================================================= */
+   
+/*  #Centering
+/*  #Element Styles : Lists
+/*  #Element Styles : Grids
+/*  #Element Styles : Search
+
+/* =======================================================
+   #CENTERING
+   ======================================================= */
+   
+	.hcenter { margin: 0 auto !important; }
+   
+/* =======================================================
+   #ELEMENT STYLES : LISTS
+   ======================================================= */
+   
+	.list-title { padding: 0px 0px 10px 15px; }
+   
+	.list > li {
+   		border-right: 40px solid #3a5340; 
+   		padding: 12px 16px;
+   		margin: 0;
+   		margin-bottom: 1px;
+   		text-align: left;
+   		font-size: 14px;
+   		font-weight: bold;
+   		color: #FFF !important;
+         background-color: #597d57;
+   		}
+
+   .list > li > a {
+      color: #FFF;
+      text-decoration: none;
+      }
+
+   .list > li > a > div {
+      width:100%;
+      }
+
+   .assign_thumb {
+      position:relative;
+      display:inline-block;
+      width:25%;
+      max-width:100px;
+      min-width:25px;
+      border:2px solid #FFF;
+      }
+
+   .assign_title {
+      position: relative;
+      display:inline-block;
+      width:70%;
+      text-align:left;
+      vertical-align:top;
+      padding-left:20px;
+      }
+   		
+	.list > li:last-child {
+		border-bottom: 0;
+	  }
+		
+	.list_container{
+		-moz-box-shadow: 7px 7px 5px #b6b6b6;
+		-webkit-box-shadow: 7px 7px 5px #b6b6b6;
+		box-shadow: 7px 7px 5px #b6b6b6;
+		}
+   		
+	.circle {
+   		position: relative;
+   		display: inline-block;
+   		float: right;
+   		-moz-border-radius: 15px;
+   		-webkit-border-radius: 15px;
+   		border-radius: 15px;
+   		padding-top: -1px;
+   		width: 18px;
+   		padding-left: 2px;
+   		color: white;
+   		font-family: helvetica;
+   		font-weight: bold;
+   		background-color: #CCC;
+   		background-image: -moz-linear-gradient(top, #E10001, #BE0002);
+   		background-image: -ms-linear-gradient(top, #00a3a2, #018685);
+   		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#E10001), to(#BE0002));
+   		background-image: -webkit-linear-gradient(top, #E10001, #BE0002);
+   		background-image: -o-linear-gradient(top, #00a3a2, #018685);
+   		background-image: linear-gradient(top, #00a3a2, #018685);
+   		background-repeat: repeat-x;
+   		margin-left: 15px;
+   		}
+   		
+   	.label {
+		position: relative;
+		display: inline-block;
+		float: right;
+		-moz-border-radius: 15px;
+		-webkit-border-radius: 15px;
+		border-radius: 15px;
+		top: -1px;
+		padding-top: 2px;
+		padding-bottom: 2px;
+		padding-left: 10px;
+		padding-right: 10px;
+		color: white;
+		font-family: helvetica;
+		font-weight: bold;
+		background-color: #CCC;
+		background-image: -moz-linear-gradient(top, #E10001, #BE0002);
+		background-image: -ms-linear-gradient(top, #00a3a2, #018685);
+		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#E10001), to(#BE0002));
+		background-image: -webkit-linear-gradient(top, #E10001, #BE0002);
+		background-image: -o-linear-gradient(top, #00a3a2, #018685);
+		background-image: linear-gradient(top, #00a3a2, #018685);
+		background-repeat: repeat-x;
+		margin-left: 15px;
+		}
+   			
+   	.label em {
+   		position: relative;
+   		top: 1px;
+   		font-style: normal;
+   		}
+   		
+   	.label a {
+   		color: white;
+   		font-family: helvetica;
+   		font-weight: bold;
+   		}
+   		
+   	.menulabel {
+   		position: absolute;
+   		display: inline-block;
+   		float: right;
+   		height: 22px;
+   		-moz-border-radius: 10px;
+   		-webkit-border-radius: 10px;
+   		border-radius: 10px;
+   		top: 8px;
+   		left: 165px;
+   		padding-top: 0px;
+   		padding-bottom: 0px;
+   		color: white;
+   		font-family: helvetica;
+   		font-weight: bold;
+   		background-color: #CCC;
+   		background-image: -moz-linear-gradient(top, #E10001, #BE0002);
+   		background-image: -ms-linear-gradient(top, #00a3a2, #018685);
+   		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#E10001), to(#BE0002));
+   		background-image: -webkit-linear-gradient(top, #E10001, #BE0002);
+   		background-image: -o-linear-gradient(top, #00a3a2, #018685);
+   		background-image: linear-gradient(top, #00a3a2, #018685);
+   		background-repeat: repeat-x;
+   		}
+   			
+   	.menulabel em {
+   		position: relative;
+   		top: -4px;
+   		left: -7px;
+   		font-style: normal;
+   		color: white;
+   		font-family: helvetica;
+   		font-weight: bold;
+   		font-size: 14px;
+   		}
+   		
+   	.menulabel a {
+   		color: white;
+   		font-family: helvetica;
+   		font-weight: bold;
+   		}
+   		
+   	.details {
+   		position: relative;
+   		top: 4px;
+   		border-top: 1px solid #ccc;
+   		padding-top: 4px;
+   		font-size: 10px;
+         font-weight:bold;
+   		color: #FFF !important;
+   		}
+   		
+   	.status {
+   		position: relative;
+   		float: right;
+   		left: 40px;
+   		vertical-align:middle;
+   		height: 100%;
+   		background-color: red;
+   	}
+   		
+/* =======================================================
+   #ELEMENT STYLES : GRIDS
+   ======================================================= */
+   
+	.grid-title { padding: 0px 0px 10px 15px; }
+		
+	.grid > li {
+		display: inline-block;
+		border: 1px solid #DBDBDB;
+		background: #FFF;
+		padding: 8px 16px;
+		text-align: left;
+		height: 200px;
+		min-width: 200px;
+		max-width: 200px;
+		margin: 0px 10px 10px 10px !important;
+		}
+		
+/* =======================================================
+   #ELEMENT STYLES : SEARCH
+   ======================================================= */
+	 
+	 .hidden { display:none; }
+	 
+	 #searchWrapper { height:375px; }
+	 
+	 .searchbtn {
+	 	position: relative;
+	 	display: inline-block;
+	 	}
+	 
+	.searchbox {
+		position: relative;
+		width: 100%;
+		 display: inline-block;
+		border: 5px solid white; 
+		-webkit-box-shadow: 
+		inset 0 0 8px  rgba(0,0,0,0.1),
+		      0 0 16px rgba(0,0,0,0.1); 
+		-moz-box-shadow: 
+		inset 0 0 8px  rgba(0,0,0,0.1),
+		      0 0 16px rgba(0,0,0,0.1); 
+		box-shadow: 
+		inset 0 0 8px  rgba(0,0,0,0.1),
+		      0 0 16px rgba(0,0,0,0.1); 
+		padding: 5px;
+		background: rgba(255,255,255,0.5);
+		margin: 0 0 10px 0;
+		font-size: 15px !important;
+		outline:none;
+		}
